@@ -39,7 +39,7 @@ function recalculate() {
         totalCost = duration * 213;
     }
 
-    calculat
+    //calculate
 }
 
 
@@ -78,7 +78,7 @@ function changeModel() {
 
     recalculate();
 
-    //modelButton.addEventListener("click", changeModel);
+    modelButton.addEventListener("click", changeModel);
 }
 
 
@@ -97,19 +97,38 @@ function changeModel() {
 
 // INSERT YOUR CODE HERE
 
+/*
 
-
-let changeDuration = 0;
-
+let changeDuration = durationButton.addEventListener("click", changeDuration);
 
 function changeDuration() {
-    let durationText = 0;
+
+    
+    let durationText = "";
+    let durationLabel = document.getElementById("duration-text");
 
     durationText = prompt("Enter the new duration: ");
+    durationLabel = durationText;
 
     recalculate(durationText);
 
-    //Attach to the button
+
 }
 
+*/
 
+var changeDuration = function (event) {
+    durationText = "";
+
+    let durationLabel = document.getElementById('#duration-text');
+
+    durationText = prompt("Enter the new duration: ");
+    durationLabel = durationText;
+
+    alert(durationLabel);
+
+    //recalculate(durationText);
+};
+
+var button = document.querySelector('#duration-button');
+button.addEventListener('click', changeDuration);
