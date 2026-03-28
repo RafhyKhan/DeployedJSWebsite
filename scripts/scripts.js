@@ -11,7 +11,7 @@ You are encouraged to use the provided naming convention for ease of review.
 
 // INSERT YOUR CODE HERE
 
-var modelname = "";
+var modelName = "";
 var duration = 0;
 
 
@@ -40,7 +40,7 @@ function recalculate() {
     costLabel.innerHTML = 0;
 
     if (modelName == "Model XYZ") {
-        totalCost = duration * 100
+        totalCost = duration * 100;
     } else if (modelName == "Model CPRG") {
         totalCost = duration * 213;
     }
@@ -68,7 +68,7 @@ function recalculate() {
 
 var modelButton = document.querySelector('#model-button');
 
-var changeModel = function (event) {
+var changeModel = function () {
 
     let modelTextSpan = document.getElementById('model-text');
     modelName = modelTextSpan.innerHTML;
@@ -78,7 +78,7 @@ var changeModel = function (event) {
         //change inner HTML
 
     } else if (modelName == "Model CPRG") {
-        modelTextSpan.innerHTML = "Model XYZ"
+        modelTextSpan.innerHTML = "Model XYZ";
         //change inner HTML
     }
 
@@ -104,7 +104,7 @@ modelButton.addEventListener('click', changeModel);
 
 var durationButton = document.querySelector('#duration-button');
 
-var changeDuration = function (event) {
+var changeDuration = function () {
 
     let durationLabel = document.getElementById('duration-text');
 
