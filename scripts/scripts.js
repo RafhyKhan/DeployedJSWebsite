@@ -11,8 +11,8 @@ You are encouraged to use the provided naming convention for ease of review.
 
 // INSERT YOUR CODE HERE
 
-let modelname = "";
-let duration = 0;
+var modelname = "";
+var duration = 0;
 
 
 
@@ -29,17 +29,23 @@ let duration = 0;
 
 // INSERT YOUR CODE HERE
 
+
 function recalculate() {
+
     let costLabel = document.getElementById("calculated-cost");
+    let modelTextSpan = document.getElementById('model-text');
     let totalCost = 0;
 
-    if (modelname == "XYZ") {
+    let modelName = modelTextSpan.innerHTML;
+    costLabel.innerHTML = 0;
+
+    if (modelName == "Model XYZ") {
         totalCost = duration * 100
-    } else if (modelname == "CPRG") {
+    } else if (modelName == "Model CPRG") {
         totalCost = duration * 213;
     }
 
-    //calculate
+    costLabel.innerHTML = totalCost;
 }
 
 
@@ -60,27 +66,26 @@ function recalculate() {
 
 // INSERT YOUR CODE HERE
 
+var modelButton = document.querySelector('#model-button');
 
-let switchModel = 0
+var changeModel = function (event) {
 
-function changeModel() {
-    let modelTextSpan = 0;
+    let modelTextSpan = document.getElementById('model-text');
+    modelName = modelTextSpan.innerHTML;
 
-    if (modelName == "XYZ") {
-        modelName = "CPRG";
+    if (modelName == "Model XYZ") {
+        modelTextSpan.innerHTML = "Model CPRG";
         //change inner HTML
 
-    } else if (modelName == "CPRG") {
-        modelName = "XYZ"
+    } else if (modelName == "Model CPRG") {
+        modelTextSpan.innerHTML = "Model XYZ"
         //change inner HTML
     }
 
-
     recalculate();
+};
 
-    modelButton.addEventListener("click", changeModel);
-}
-
+modelButton.addEventListener('click', changeModel);
 
 
 
@@ -91,44 +96,22 @@ function changeModel() {
         - prompt() the user for a new duration
         - save the result of the prompt() to the duration variable
         - change the innerHTML of the duration-text span element to this new value
-        - recalculate() the total cost/
+        - recalculate() the total cost
     - finally, attach this function to the "Change Duration" pseudo-button, so it runs whenever the button is clicked.
 */
 
 // INSERT YOUR CODE HERE
 
-/*
-
-let changeDuration = durationButton.addEventListener("click", changeDuration);
-
-function changeDuration() {
-
-    
-    let durationText = "";
-    let durationLabel = document.getElementById("duration-text");
-
-    durationText = prompt("Enter the new duration: ");
-    durationLabel = durationText;
-
-    recalculate(durationText);
-
-
-}
-
-*/
+var durationButton = document.querySelector('#duration-button');
 
 var changeDuration = function (event) {
-    durationText = "";
 
-    let durationLabel = document.getElementById('#duration-text');
+    let durationLabel = document.getElementById('duration-text');
 
-    durationText = prompt("Enter the new duration: ");
-    durationLabel = durationText;
+    duration = prompt("Enter the new duration: ");
+    durationLabel.innerHTML = duration;
 
-    alert(durationLabel);
-
-    //recalculate(durationText);
+    recalculate();
 };
 
-var button = document.querySelector('#duration-button');
-button.addEventListener('click', changeDuration);
+durationButton.addEventListener('click', changeDuration);
